@@ -1,0 +1,28 @@
+main {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly
+}
+
+.beast {
+  border: 1px solid black;
+  width: 400px;
+}
+
+.beastly {
+  background-color: red;
+}
+
+img {
+  width:100%;
+}
+
+.beast div {
+  display:flex;
+  justify-content: space-evenly;
+}
+
+.btn {
+  width: 40%;
+}
+
