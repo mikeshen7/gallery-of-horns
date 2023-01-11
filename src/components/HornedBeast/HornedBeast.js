@@ -30,11 +30,15 @@ class HornedBeast extends React.Component {
     })
   }
 
+  handleNameClick = () => {
+    this.props.handleOpenModal(this.props.title, this.props.description, this.props.imageUrl)
+  }
+
   render() {
     return (
       <>
         <article className={this.state.beastly ? "beast beastly" : "beast"}>
-          <h2>{this.props.title}</h2>
+          <h2 onClick={this.handleNameClick}>{this.props.title}</h2>
           <p>{this.props.description}</p>
           <p >♥{this.state.favorites} Favorites</p>
 
@@ -42,7 +46,8 @@ class HornedBeast extends React.Component {
             src={this.props.imageUrl}
             alt={this.props.desciption}
             title={this.props.title}
-            onClick={this.handleFavorites}></img>
+            onClick={this.handleFavorites}
+          ></img>
 
           <div>
             <Button onClick={this.handleBeastly} variant="primary">Beastly</Button>
