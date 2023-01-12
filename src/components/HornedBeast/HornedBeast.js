@@ -31,21 +31,22 @@ class HornedBeast extends React.Component {
   }
 
   handleNameClick = () => {
-    this.props.handleOpenModal(this.props.title, this.props.description, this.props.imageUrl)
+    this.props.handleOpenModal(this.props.beast.title, this.props.beast.description, this.props.beast.image_url)
   }
 
   render() {
     return (
       <>
-        <article className={this.state.beastly ? "beast beastly" : "beast"}>
-          <h2 onClick={this.handleNameClick}>{this.props.title}</h2>
-          <p>{this.props.description}</p>
+        <article className={this.state.beastly ? "beast beastly" : "beast"} >
+          <h2 onClick={this.handleNameClick}>{this.props.beast.title}</h2>
+          <p>{this.props.beast.description}</p>
+          <p>{this.props.beast.horns} horns</p>
           <p >♥{this.state.favorites} Favorites</p>
 
           <img
-            src={this.props.imageUrl}
-            alt={this.props.desciption}
-            title={this.props.title}
+            src={this.props.beast.image_url}
+            alt={this.props.beast.desciption}
+            title={this.props.beast.title}
             onClick={this.handleFavorites}
           ></img>
 

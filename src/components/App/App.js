@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import ShowModal from '../Modal/Modal';
+import BeastFilter from '../BeastFilter/BeastFilter';
 
 // 2. Create class component
 class App extends React.Component {
@@ -11,9 +12,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       showModal: false,
-      selectedBeastTitle: 'Beast Title',
-      selectedBeastDescription: 'Beast Description',
-      selectedBeastImageUrl: 'http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg'
+      selectedBeastTitle: '',
+      selectedBeastDescription: '',
+      selectedBeastImageUrl: '',
+      selectedHorns: 'All',
+      hornSort: 'Name Ascending'
     }
   }
 
@@ -32,13 +35,26 @@ class App extends React.Component {
     })
   }
 
+  handleFilter = (horns, sort) => {
+    this.setState({
+      selectedHorns: horns,
+      hornSort: sort
+    })
+  }
+
   render() {
     return (
       <>
         <Header />
 
+        <BeastFilter 
+          handleFilter={this.handleFilter}
+        />
+
         <Main
           handleOpenModal={this.handleOpenModal}
+          selectedHorns={this.state.selectedHorns}
+          hornSort={this.state.hornSort}
         />
 
         <ShowModal
